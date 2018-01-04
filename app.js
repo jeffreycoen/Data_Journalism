@@ -66,21 +66,22 @@ console.log(data)
     .data(data)
     .enter().append("circle")
       .attr("cx", function(data, index) {
-        console.log(data.physicalActivity);
+       // console.log(data.physicalActivity);
         return xLinearScale(data.physicalActivity);
       })
       .attr("cy", function(data, index) {
         return yLinearScale(data.percentPoverty);
       })
       .attr("r", "8")
-      .attr("fill", "lightblue")
-      .on("click", function(data) {
-        toolTip.show(data)
-       
-      })
+      .attr("fill", "lightblue")  
       .text(function (data, index){
         return data.abbr;
       })
+      .on("mouseover", function(data) {
+        toolTip.show(data)
+       
+      })
+    
       // onmouseout event
       .on("mouseout", function(data, index) {
         toolTip.hide(data);
@@ -96,7 +97,7 @@ console.log(data)
   chart.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 40)
-      .attr("x", 0 - (height / 2))
+      .attr("x", -80 - (height / 2))
       .attr("dy", "1em")
       .attr("class", "axisText")
       .text("% of Persons Below Poverty Line");
@@ -115,4 +116,13 @@ d3.selectAll("circle").each(function() {
     // .ease(d3.easeBounce)
     .attr("r", "16")
     .duration(1800);
+});
+
+
+chart.selectAll("g")
+.data(data)
+.enter()
+.append("text")
+.text(function (data, index){
+  return data.abbr;
 });
