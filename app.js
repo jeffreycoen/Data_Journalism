@@ -75,7 +75,11 @@ console.log(data)
       .attr("r", "8")
       .attr("fill", "lightblue")
       .on("click", function(data) {
-        toolTip.show(data);
+        toolTip.show(data)
+       
+      })
+      .text(function (data, index){
+        return data.abbr;
       })
       // onmouseout event
       .on("mouseout", function(data, index) {
@@ -102,4 +106,13 @@ console.log(data)
     .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 30) + ")")
     .attr("class", "axisText")
     .text("% of Persons Who Exercised in Previous Month");
+});
+
+d3.selectAll("circle").each(function() {
+  d3
+    .select(this)
+    .transition()
+    // .ease(d3.easeBounce)
+    .attr("r", "16")
+    .duration(1800);
 });
