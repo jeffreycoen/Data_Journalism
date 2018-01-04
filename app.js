@@ -57,7 +57,7 @@ console.log(data)
       var stateName = data.locatDesc;
       var activityLevel = +data.physicalActivity;
       var povertyLevel = +data.percentPoverty;
-      return (stateName + "<br> Hair length: " + activityLevel + "<br> Hits: " + povertyLevel);
+      return (stateName + "<br> % Exercise: " + activityLevel + "<br> % Poverty: " + povertyLevel);
     });
 
   chart.call(toolTip);
@@ -95,11 +95,11 @@ console.log(data)
       .attr("x", 0 - (height / 2))
       .attr("dy", "1em")
       .attr("class", "axisText")
-      .text("Number of Billboard 100 Hits");
+      .text("% of Persons Below Poverty Line");
 
 // Append x-axis labels
   chart.append("text")
     .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 30) + ")")
     .attr("class", "axisText")
-    .text("Hair Metal Band Hair Length (inches)");
+    .text("% of Persons Who Exercised in Previous Month");
 });
