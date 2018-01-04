@@ -54,10 +54,10 @@ console.log(data)
     .attr("class", "tooltip")
     .offset([80, -60])
     .html(function(data) {
-      var bandName = data.rockband;
-      var hairLength = +data.physicalActivity;
-      var numHits = +data.percentPoverty;
-      return (bandName + "<br> Hair length: " + hairLength + "<br> Hits: " + numHits);
+      var stateName = data.locatDesc;
+      var activityLevel = +data.physicalActivity;
+      var povertyLevel = +data.percentPoverty;
+      return (stateName + "<br> Hair length: " + activityLevel + "<br> Hits: " + povertyLevel);
     });
 
   chart.call(toolTip);
