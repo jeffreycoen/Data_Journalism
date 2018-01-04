@@ -72,8 +72,8 @@ console.log(data)
       .attr("cy", function(data, index) {
         return yLinearScale(data.percentPoverty);
       })
-      .attr("r", "15")
-      .attr("fill", "pink")
+      .attr("r", "8")
+      .attr("fill", "lightblue")
       .on("click", function(data) {
         toolTip.show(data);
       })
